@@ -65,22 +65,20 @@ def parse_and_extract(url, name="2020"):
     # print(table_data)
 
 
-# def run(start_year=None, years_ago=10):
-#     if start_year == None:
-#         now = datetime.datetime.now()
-#         start_year = now.year
-#     assert isinstance(start_year, int)
-#     assert isinstance(years_ago, int)
-#     assert len(f"{start_year}") == 4
-#     for i in range(0, years_ago + 1):
-#         url = "https://www.boxofficemojo.com/year/world/{start_year}/"
-#         parse_and_extract(url, name=start_year)
-#         print(f"Finished {start_year}")
-#         start_year -= 1
+def run(start_year=None, years_ago=10):
+    if start_year == None:
+        now = datetime.datetime.now()
+        start_year = now.year
+    assert isinstance(start_year, int)
+    assert isinstance(years_ago, int)
+    assert len(f"{start_year}") == 4
+    for i in range(0, years_ago + 1):
+        url = f"https://www.boxofficemojo.com/year/world/{start_year}"
+        parse_and_extract(url, name=start_year)
+        print(f"Finished {start_year}")
+        start_year -= 1
 
 
-# if __name__ == "__main__":
-#     run()
+if __name__ == "__main__":
+    run()
 
-url = "https://www.boxofficemojo.com/year/world/"
-parse_and_extract(url, name="2020")
