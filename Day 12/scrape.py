@@ -37,6 +37,8 @@ def parse_and_extract(url, name="2020"):
 
     # print(r_table)
     table_data = []
+    # table_data_dicts=[] ---> dict code
+
     header_names = []
     if len(r_table) == 0:
         return False
@@ -55,11 +57,16 @@ def parse_and_extract(url, name="2020"):
         # print(row.text)
         cols = row.find("td")  # gets all the column cells per row
         row_data = []
-        for _, col in enumerate(cols):
+        # row_dict_data = {} ---> dict code
+        for i, col in enumerate(cols):
             # print(i, col.text, "\n\n")
             row_data.append(col.text)
+            # header_name = header_names[i] ---> dict code
+            # row_dict_data[header_name] = col.text ---> dict code
         table_data.append(row_data)
+        # table_data_dict.append(row_data_dict) ---> dict code
     df = pd.DataFrame(table_data, columns=header_names)
+    # df = pd.DataFrame(row_dict_data) ---> dict code
     path = os.path.join(BASE_DIR, "data")
     os.makedirs(path, exist_ok=True)
     filepath = os.path.join("data", f"{name}.csv")
