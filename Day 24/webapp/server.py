@@ -20,7 +20,9 @@ def contact_us(environ):
 
 def app(environ, start_response):
     path = environ.get("PATH_INFO")
-    if path == "/":  # index / root of the web app
+    if path.endswith("/"):
+        path = path[:-1]
+    if path == "":  # index / root of the web app
         data = home(environ)
     elif path == "/contact":
         data = contact_us(environ)
