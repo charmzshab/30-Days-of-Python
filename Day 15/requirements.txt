@@ -10,7 +10,7 @@ click==7.1.2
 colorama==0.4.3
 cssselect==1.1.0
 fake-useragent==0.1.11
-fastapi==0.59.0
+fastapi==0.65.2
 Flask==1.1.2
 gunicorn==20.0.4
 h11==0.9.0
